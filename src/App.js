@@ -22,6 +22,7 @@ import reviewsReducer from "./reviews/reviews-reducer";
 import PublicProfile from "./users/public-profile";
 import followsReducer from "./follows/follows-reducer";
 
+
 const store = configureStore({
     reducer: {
         movies: moviesReducer,
