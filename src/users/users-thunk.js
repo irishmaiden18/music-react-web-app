@@ -1,9 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {createUser, findAllUsers, findUserById, login, logout, profile, register} from "./users-service";
 
-
-
-
 export const logoutThunk = createAsyncThunk(
     'logout',
     async () => await logout()
