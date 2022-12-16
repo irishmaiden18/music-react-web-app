@@ -7,17 +7,17 @@ import "./index.css";
 const Movies = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {movies} = useSelector((state) => state.movies)
-    const [movie, setMovie] = useState({title: 'New Song'})
+    const [movie, setMovie] = useState({title: 'New Movie'})
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllMoviesThunk())
     }, [])
     return(
         <>
-            <h1>Songs</h1>
+            <h1>Movies</h1>
             {
                 currentUser &&
-                <h1 className="pb-3 pt-4">Welcome to Song Search {currentUser.username}!</h1>
+                <h2>Welcome {currentUser.username} </h2>
             }
             <ul className="list-group">
                 <li className="list-group-item">
