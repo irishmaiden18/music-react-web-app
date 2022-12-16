@@ -57,6 +57,7 @@ const OmdbDetails = () => {
                             {/*spotify link*/}
                             <li className="ps-5 pe-5 float-end text-white"><a href={details.external_urls.spotify}><button className="btn btn-success float-end text-white">Go to Spotify</button></a></li>
                         </ul>
+
                     </div>
                 </div>
                 {
