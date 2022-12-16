@@ -2,33 +2,34 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {createMoviesThunk, deleteMovieThunk, findAllMoviesThunk} from "./movies-thunks";
 import {userLikesMovieThunk} from "../likes/likes-thunks";
+import "./index.css";
 
 const Movies = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {movies} = useSelector((state) => state.movies)
-    const [movie, setMovie] = useState({title: 'New Movie'})
+    const [movie, setMovie] = useState({title: 'New Song'})
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(findAllMoviesThunk())
     }, [])
     return(
         <>
-            <h1>Movies</h1>
+
             {
                 currentUser &&
-                <h2>Welcome {currentUser.username} </h2>
+                <h1 className="pb-3 pt-4">Welcome to Song Search {currentUser.username}!</h1>
             }
             <ul className="list-group">
                 <li className="list-group-item">
-                    <button className="btn btn-success float-end" onClick={() => {
+                    <button className="btn btn-primary float-end col-2" onClick={() => {
                         dispatch(createMoviesThunk(
                             {
                                 title: movie.title
                             }
                         ))
-                    }}>Create</button>
+                    }}>Create Song</button>
                     <input
-                        className="form-control w-75"
+                        className="form-control" style={{width: 83.3333333 + '%'}}
                         onChange={(e) =>
                             setMovie({...movie, title: e.target.value})}
                         value={movie.title}/>

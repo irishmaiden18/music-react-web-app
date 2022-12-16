@@ -21,6 +21,8 @@ import OmdbDetails from "./omdb/omdb-details";
 import reviewsReducer from "./reviews/reviews-reducer";
 import PublicProfile from "./users/public-profile";
 import followsReducer from "./follows/follows-reducer";
+import Spotify from "./spotify";
+import EditProfile from "./users/edit-profile";
 
 
 const store = configureStore({
@@ -42,6 +44,7 @@ function App() {
                     <CurrentUser>
                         <Navigation/>
                         <Routes>
+                            <Route path="/spotify" element={<Spotify/>}/>
                             <Route index element={<Movies/>}/>
                             <Route path="/search" element={<OmdbSearch/>}/>
                             <Route path="/users" element={
@@ -56,7 +59,12 @@ function App() {
                                     <Profile/>
                                 </ProtectedRoute>
                             }/>
-                            <Route path="/details/:imdbID" element={<OmdbDetails/>}/>
+                            <Route path="/edit-profile" element={
+                                <ProtectedRoute>
+                                    <EditProfile/>
+                                </ProtectedRoute>
+                            }/>
+                            <Route path="/omdb-details/:imdbID" element={<OmdbDetails/>}/>
                             <Route path="/profile/:uid" element={<PublicProfile/>}/>
                         </Routes>
                     </CurrentUser>

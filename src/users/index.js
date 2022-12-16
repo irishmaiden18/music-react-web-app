@@ -11,7 +11,7 @@ const Users = () => {
     }, [])
     return(
         <>
-            <h1>Users {users.length}</h1>
+            <h2 className="pb-3 pt-4">Users </h2>
             <div className="list-group">
                 {
                     users.map((user) =>
@@ -21,6 +21,7 @@ const Users = () => {
                     )
                 }
             </div>
+            <h3 className="pb-3 pt-4">(Total Users: {users.length})</h3>
         </>
     )
 }
