@@ -16,11 +16,11 @@ export const findMovieBySearchTerm = async (term) => {
 }
 
 export const findMovieByImdbId = async (imdbID) => {
-    const response = await axios.get(`${DETAILS_URL}${imdbID}`)
+    //const response = await axios.get(`${DETAILS_URL}${imdbID}`)
     console.log("find movie called");
     let token = await requestToken()
     const items = await getTrack(token, imdbID)
-    return response.data
+    return items;
 
 
 

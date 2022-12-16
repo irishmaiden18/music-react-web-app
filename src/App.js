@@ -79,7 +79,7 @@ function App() {
                                           <RemoveUsers/>
                                        </ProtectedRouteAdmin>
                                        }/>
-                            <Route path="/details/:imdbID" element={<OmdbDetails/>}/>
+                            <Route path="/omdb-details/:imdbID" element={<OmdbDetails/>}/>
                             <Route path="/profile/:uid" element={<PublicProfile/>}/>
 
                         </Routes>

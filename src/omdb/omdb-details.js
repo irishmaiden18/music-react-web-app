@@ -12,8 +12,8 @@ const OmdbDetails = () => {
     // const [review, setReview] = useState('')
     // const {reviews} = useSelector((state) => state.reviews)
     //console.log('reviews: ' + reviews.state)
-    //const {details} = useSelector((state) => state.imdbID)
-    var details = null;
+    const {details} = useSelector((state) => state.omdb)
+    //var details = null;
     const {currentUser} = useSelector((state) => state.users)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -37,11 +37,12 @@ const OmdbDetails = () => {
                 <div className="row">
                     <div className="col">
                         <ul className="list-group">
-                            <li className="list-group-item">Are the Lyrics
-                                Explicit? {details.explicit}</li>
+                            {/*<li className="list-group-item">Are the Lyrics*/}
+                            {/*    Explicit? if ({details.explicit}==false) </li>*/}
                             <li className="list-group-item">Album
-                                Art: {details.album.images[0].url}</li>
-                            <li className="list-group-item">Artist: {details.artists.name}</li>
+                                Art: <img src={details.album.images[0].url} className="" height={75} alt=''/>
+                            </li>
+                            <li className="list-group-item">Artist: {details.artists[0].name}</li>
                             <li className="list-group-item">Song
                                 Duration: {details.duration_ms}</li>
                             <li className="list-group-item">Album: {details.album.name}</li>
@@ -51,11 +52,12 @@ const OmdbDetails = () => {
                                 Album: {details.album.total_tracks}</li>
                             <li className="list-group-item">Album Release
                                 Date: {details.album.release_date}</li>
-                            <li className="list-group-item">Available
-                                Markets: {details.album.available_markets}</li>
-                            <li className="list-group-item">Find this song on
-                                Spotify!: {details.external_urls.spotify}</li>
+                            {/*<li className="list-group-item">Find this song on*/}
+                            {/*    Spotify! {details.external_urls.spotify}</li>*/}
+                            {/*spotify link*/}
+                            <li className="ps-5 pe-5 float-end text-white"><a href={details.external_urls.spotify}><button className="btn btn-success float-end text-white">Go to Spotify</button></a></li>
                         </ul>
+
                     </div>
                 </div>
                 {
@@ -79,9 +81,6 @@ const OmdbDetails = () => {
                 {/*        )*/}
                 {/*    }*/}
                 {/*</ul>*/}
-                <pre>
-                {JSON.stringify(details, null, 2)}
-            </pre>
             </>
         )
     }
