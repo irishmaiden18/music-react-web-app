@@ -33,7 +33,7 @@ const OmdbSearch = () => {
                 </li>
                 {
                     movies && movies.map((movie) =>
-                        <li key={movie.imdbID} className="list-group-item">
+                        <li key={movie.id} className="list-group-item">
                             {/*{detailspage = "omdb-details/" + movie.id}*/}
                             {/*<i onClick={() => {*/}
                             {/*    dispatch(userLikesMovieThunk({*/}
@@ -46,7 +46,7 @@ const OmdbSearch = () => {
                             <img src={movie.album.images[0].url} className="float-start" height={75} alt=''/>
 
                             {/*song name*/}
-                            <span className="ps-5 float-start"><a href={detailspage}>{movie.name}</a></span>
+                            <span className="ps-5 float-start"><a href={"omdb-details/" + movie.id}>{movie.name}</a></span>
 
                             {/*artist name*/}
                             <span className="ps-5 float-start">{movie.album.artists[0].name}</span>
@@ -61,9 +61,6 @@ const OmdbSearch = () => {
                 }
 
             </ul>
-            <pre>
-                {JSON.stringify(movies, null, 2)}
-            </pre>
         </>
     )
 }
