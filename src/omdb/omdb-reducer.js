@@ -5,7 +5,7 @@ import {findMovieByImdbIdThunk, findMovieBySearchTermThunk} from "./omdb-thunks"
 const initialState = {
     movies: [],
     loading: false,
-    details: {}
+    details: null
 }
 
 const omdbReducer = createSlice({
