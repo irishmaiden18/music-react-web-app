@@ -5,7 +5,9 @@ import {userLikesMovieThunk} from "../likes/likes-thunks";
 import {Link} from "react-router-dom";
 
 const OmdbSearch = () => {
-    const [searchTerm, setSearchTerm] = useState('Avatar')
+    let searchTerm = "";
+    let setSearchTerm = "";
+    [searchTerm, setSearchTerm] = useState('Avatar')
     const {movies, loading} = useSelector((state) => state.omdb)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -53,4 +55,4 @@ const OmdbSearch = () => {
     )
 }
 
-export default OmdbSearch
+export default OmdbSearch;

@@ -3,13 +3,15 @@ import {Buffer} from "buffer";
 
 const api = axios.create({withCredentials: true})
 
-var client_id = 'da49c66872894fdca7dad47e94e1fc2d';
-var client_secret = '1a0bd3e4c6794b5eb68d2a727aa11e2c';
+const client_id = '46273ede126540ecb96db32d50d5f08c';
+const client_secret = '6cf520362bff407ebab1afd5c0e11b94';
+
+
 
 let formData = new FormData();
 formData.append('grant_type', 'client_credentials');
 
-var authOptions = {
+let authOptions = {
     method: 'post',
     url: 'https://accounts.spotify.com/api/token',
     headers: {
@@ -30,22 +32,33 @@ var authOptions = {
 export const requestToken = async () => {
 //    const response = await api.post('https://accounts.spotify.com/api/token', {}, authOptions)
 
-    return fetch('https://accounts.spotify.com/api/token', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
-        },
-        body: 'grant_type=client_credentials'
-    }).then(function(response) {
-        return response.json();
-    }).then(function(data) {
-        console.log('Access token:', data.access_token);
-        return data.access_token
+     return fetch('https://accounts.spotify.com/api/token', {
+         method: 'POST',
+         headers: {
+             'Content-Type': 'application/x-www-form-urlencoded',
+             'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
+         },
+         body: 'grant_type=client_credentials'
+     }).then(function(response) {
+         console.log('response: ' +JSON.stringify(response) )
+         return response.json();
+     }).then(function(data) {
+         console.log("data: " + JSON.stringify(data));
+         console.log('Access token:', data.access_token);
+         return data.access_token
     }).catch(function(error) {
-        console.error('Error:', error);
+         console.error('Error:', error);
     });
 
+    // const response1 = await fetch('https://accounts.spotify.com/api/token', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/x-www-form-urlencoded',
+    //         'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
+    //     },
+    //     body: 'grant_type=client_credentials'
+    // })
+    // console.log('response: ' +JSON.stringify(response1) );
 
 
 
@@ -66,9 +79,12 @@ export const requestToken = async () => {
 //     return token
 }
 
-export const search = async (ACCESS_TOKEN) => {
+export const search = async (ACCESS_TOKEN, query) => {
 
-    return fetch('https://api.spotify.com/v1/search?q=stairway+to+heaven&type=track', {
+    console.log("query:" + query);
+    console.log("token:" + ACCESS_TOKEN);
+
+    return fetch(`https://api.spotify.com/v1/search?q=${query}&type=track`, {
         headers: {
             'Authorization': 'Bearer ' + ACCESS_TOKEN
         }

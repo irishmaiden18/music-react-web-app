@@ -2,19 +2,24 @@ import {useEffect, useState} from "react";
 import {requestToken, search} from "./service";
 
 const Spotify = () => {
-    const [token, setToken] = useState()
+    const [token, setToken] = useState(null)
     const [items, setItems] = useState([])
     const getTheToken = async () => {
         const token = await requestToken()
         setToken(token)
     }
-    const searchArtist = async () => {
-        const token = await requestToken()
-        const items = await search(token)
+    const searchArtist = async (term) => {
+        if (!token) {
+            let token = await requestToken()
+            setToken(token)
+        }
+        const items = await search(token, term)
         setItems(items)
     }
     useEffect(() => {
-        searchArtist()
+        //getTheToken();
+       // console.log("initial token: " + token);
+        searchArtist("over the rainbow")
     }, [])
     return(
         <>
@@ -28,4 +33,4 @@ const Spotify = () => {
         </>
     )
 }
-export default Spotify
+export default Spotify;
