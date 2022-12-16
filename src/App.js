@@ -22,6 +22,7 @@ import reviewsReducer from "./reviews/reviews-reducer";
 import PublicProfile from "./users/public-profile";
 import followsReducer from "./follows/follows-reducer";
 import Spotify from "./spotify";
+import EditProfile from "./users/edit-profile";
 
 
 const store = configureStore({
@@ -58,7 +59,12 @@ function App() {
                                     <Profile/>
                                 </ProtectedRoute>
                             }/>
-                            <Route path="/details/:imdbID" element={<OmdbDetails/>}/>
+                            <Route path="/edit-profile" element={
+                                <ProtectedRoute>
+                                    <EditProfile/>
+                                </ProtectedRoute>
+                            }/>
+                            <Route path="/omdb-details/:imdbID" element={<OmdbDetails/>}/>
                             <Route path="/profile/:uid" element={<PublicProfile/>}/>
                         </Routes>
                     </CurrentUser>

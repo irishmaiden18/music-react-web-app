@@ -8,18 +8,33 @@ const Spotify = () => {
         const token = await requestToken()
         setToken(token)
     }
-    const searchArtist = async (term) => {
-        if (!token) {
-            let token = await requestToken()
-            setToken(token)
+
+    var debounce = false;
+    let token1 = null;
+    var items1 = null;
+
+    const searchSong = async (term) => {
+        if (token1==null && !debounce) {
+            debounce = true;
+            console.log("if statement executes");
+            token1 = await requestToken()
+            setToken(token1)
+            console.log("passed request: " + token1);
+            debounce = false;
         }
-        const items = await search(token, term)
-        setItems(items)
+        if(token1 != null) {
+            console.log("toekn in search: " + token1);
+            items1 = await search(token1, term)
+            setItems(items1)
+            console.log('items: ', items1);
+            return items1;
+        }
+
     }
     useEffect(() => {
         //getTheToken();
-       // console.log("initial token: " + token);
-        searchArtist("over the rainbow")
+        console.log("initial token: " + token);
+        searchSong("over the rainbow")
     }, [])
     return(
         <>
@@ -28,7 +43,7 @@ const Spotify = () => {
                 {JSON.stringify(token, null, 2)}
             </pre>
             <pre>
-                {JSON.stringify(items, null, 2)}
+                {JSON.stringify(items1, null, 2)}
             </pre>
         </>
     )

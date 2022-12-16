@@ -40,7 +40,6 @@ export const requestToken = async () => {
          },
          body: 'grant_type=client_credentials'
      }).then(function(response) {
-         console.log('response: ' +JSON.stringify(response) )
          return response.json();
      }).then(function(data) {
          console.log("data: " + JSON.stringify(data));
@@ -89,13 +88,17 @@ export const search = async (ACCESS_TOKEN, query) => {
             'Authorization': 'Bearer ' + ACCESS_TOKEN
         }
     }).then(function(response) {
+        console.log('response ' + JSON.stringify(response))
         return response.json();
     }).then(function(data) {
+        console.log('data:', data);
         console.log('Songs:', data.tracks.items);
         return data.tracks.items
     }).catch(function(error) {
         console.error('Error:', error);
     });
+
+
 
 
     // const {data} = await axios.get("https://api.spotify.com/v1/search", {
@@ -108,4 +111,24 @@ export const search = async (ACCESS_TOKEN, query) => {
     //     }
     // })
     // return data
+}
+
+export const getTrack = async (ACCESS_TOKEN, query) => {
+
+    console.log("track query:" + query);
+    console.log("track token:" + ACCESS_TOKEN);
+
+    return fetch(`https://api.spotify.com/v1/tracks/${query}`, {
+        headers: {
+            'Authorization': 'Bearer ' + ACCESS_TOKEN
+        }
+    }).then(function (response) {
+        console.log('response ' + JSON.stringify(response))
+        return response.json();
+    }).then(function (data) {
+        console.log('track data:', data);
+        return data;
+    }).catch(function (error) {
+        console.error('Error:', error);
+    });
 }
