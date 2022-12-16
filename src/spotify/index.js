@@ -23,7 +23,7 @@ const Spotify = () => {
             debounce = false;
         }
         if(token1 != null) {
-            console.log("toekn in search: " + token1);
+            console.log("tokenn in search: " + token1);
             items1 = await search(token1, term)
             setItems(items1)
             console.log('items: ', items1);
@@ -32,7 +32,6 @@ const Spotify = () => {
 
     }
     useEffect(() => {
-        //getTheToken();
         console.log("initial token: " + token);
         searchSong("over the rainbow")
     }, [])

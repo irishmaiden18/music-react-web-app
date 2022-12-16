@@ -6,7 +6,7 @@ import {userLikesMovieThunk} from "../likes/likes-thunks";
 const OmdbSearch = () => {
     let searchTerm = "";
     let setSearchTerm = "";
-    [searchTerm, setSearchTerm] = useState('over the rainbow')
+    [searchTerm, setSearchTerm] = useState('')
     const {movies, loading} = useSelector((state) => state.omdb)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -24,7 +24,7 @@ const OmdbSearch = () => {
                             dispatch(findMovieBySearchTermThunk(searchTerm))
                         }}>Search
                     </button>
-                    <input
+                    <input placeholder = "Search your favourite song..."
                         className="form-control" style={{width: 91.66666667 + '%'}}
                         onChange={(e) => {
                             setSearchTerm(e.target.value)

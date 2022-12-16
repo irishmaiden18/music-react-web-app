@@ -25,10 +25,8 @@ import EditProfile from "./users/edit-profile";
 import Home from "./users/home";
 import ProtectedRouteAdmin from "./users/protected-route-admin";
 import ProtectedRouteReviewer from "./users/protected-route-reviewer";
-import RemoveUsers from "./users/remove-users";import Spotify from "./spotify";
-import EditProfile from "./users/edit-profile";
+import RemoveUsers from "./users/remove-users";
 import Spotify from "./spotify";
-import EditProfile from "./users/edit-profile";
 
 const store = configureStore({
     reducer: {
