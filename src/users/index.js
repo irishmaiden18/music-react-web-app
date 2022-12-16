@@ -11,7 +11,7 @@ const Users = () => {
     }, [])
     return(
         <>
-            <h2 className="pb-3 pt-4">Users </h2>
+            <h2 className="pb-3 pt-4">Active Users </h2>
             <div className="list-group">
                 {
                     users.map((user) =>

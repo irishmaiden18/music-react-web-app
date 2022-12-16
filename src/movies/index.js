@@ -14,7 +14,7 @@ const Movies = () => {
     }, [])
     return(
         <>
-
+            <h1>Songs</h1>
             {
                 currentUser &&
                 <h1 className="pb-3 pt-4">Welcome to Song Search {currentUser.username}!</h1>

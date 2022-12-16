@@ -21,9 +21,14 @@ import OmdbDetails from "./omdb/omdb-details";
 import reviewsReducer from "./reviews/reviews-reducer";
 import PublicProfile from "./users/public-profile";
 import followsReducer from "./follows/follows-reducer";
+import EditProfile from "./users/edit-profile";
+import Home from "./users/home";
+import ProtectedRouteAdmin from "./users/protected-route-admin";
+import ProtectedRouteReviewer from "./users/protected-route-reviewer";
+import RemoveUsers from "./users/remove-users";import Spotify from "./spotify";
+import EditProfile from "./users/edit-profile";
 import Spotify from "./spotify";
 import EditProfile from "./users/edit-profile";
-
 
 const store = configureStore({
     reducer: {
@@ -45,6 +50,7 @@ function App() {
                         <Navigation/>
                         <Routes>
                             <Route path="/spotify" element={<Spotify/>}/>
+                            <Route index element={<Home/>}/>
                             <Route index element={<Movies/>}/>
                             <Route path="/search" element={<OmdbSearch/>}/>
                             <Route path="/users" element={
@@ -60,12 +66,24 @@ function App() {
                                 </ProtectedRoute>
                             }/>
                             <Route path="/edit-profile" element={
-                                <ProtectedRoute>
-                                    <EditProfile/>
-                                </ProtectedRoute>
-                            }/>
-                            <Route path="/omdb-details/:imdbID" element={<OmdbDetails/>}/>
+                                                            <ProtectedRoute>
+                                                                <EditProfile/>
+                                                            </ProtectedRoute>
+                                                        }/>
+                             <Route path="/newsongs" element={
+                                  <ProtectedRouteAdmin>
+                                   <Movies/>
+                                  </ProtectedRouteAdmin>
+                                   }/>
+
+                              <Route path="/remove-user" element={
+                                      <ProtectedRouteAdmin>
+                                          <RemoveUsers/>
+                                       </ProtectedRouteAdmin>
+                                       }/>
+                            <Route path="/details/:imdbID" element={<OmdbDetails/>}/>
                             <Route path="/profile/:uid" element={<PublicProfile/>}/>
+
                         </Routes>
                     </CurrentUser>
                 </BrowserRouter>

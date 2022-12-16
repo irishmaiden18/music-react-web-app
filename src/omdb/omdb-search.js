@@ -15,7 +15,7 @@ const OmdbSearch = () => {
     var detailspage = "";
     return (
         <>
-            <h2 className="pt-4 pb-3">Search for Songs</h2>
+            <h1>Song Search</h1>
             <ul className="list-group">
                 <li className="list-group-item">
                     <button
