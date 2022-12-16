@@ -1,0 +1,32 @@
+.banner {
+    position: relative;
+    z-index: -1;
+    padding-bottom: 12px;
+}
+
+.editProfileButton {
+    border-color: black;
+    background-color: black;
+    color: white;
+    padding: 6px;
+}
+
+.editProfileAvatarIcon {
+    width: 200px;
+    position: absolute;
+    left: 5%;
+    top: 32%;
+    z-index: 1;
+}
+
+.smallText {
+    font-size: .75em;
+}
+
+.nameTextArea {
+    font-size: 16px;
+}
+
+.nameTextAreaWidth {
+    width: 100%;
+}

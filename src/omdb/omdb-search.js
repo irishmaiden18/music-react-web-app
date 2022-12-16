@@ -13,7 +13,7 @@ const OmdbSearch = () => {
     }, [])
     return (
         <>
-            <h1>Omdb Search</h1>
+            <h1>Song Search</h1>
             <ul className="list-group">
                 <li className="list-group-item">
                     <button

@@ -21,7 +21,11 @@ import OmdbDetails from "./omdb/omdb-details";
 import reviewsReducer from "./reviews/reviews-reducer";
 import PublicProfile from "./users/public-profile";
 import followsReducer from "./follows/follows-reducer";
-
+import EditProfile from "./users/edit-profile";
+import Home from "./users/home";
+import ProtectedRouteAdmin from "./users/protected-route-admin";
+import ProtectedRouteReviewer from "./users/protected-route-reviewer";
+import RemoveUsers from "./users/remove-users";
 
 const store = configureStore({
     reducer: {
@@ -42,7 +46,7 @@ function App() {
                     <CurrentUser>
                         <Navigation/>
                         <Routes>
-                            <Route index element={<Movies/>}/>
+                            <Route index element={<Home/>}/>
                             <Route path="/search" element={<OmdbSearch/>}/>
                             <Route path="/users" element={
                                 <ProtectedRoute>
@@ -56,8 +60,25 @@ function App() {
                                     <Profile/>
                                 </ProtectedRoute>
                             }/>
+                            <Route path="/edit-profile" element={
+                                                            <ProtectedRoute>
+                                                                <EditProfile/>
+                                                            </ProtectedRoute>
+                                                        }/>
+                             <Route path="/newsongs" element={
+                                  <ProtectedRouteAdmin>
+                                   <Movies/>
+                                  </ProtectedRouteAdmin>
+                                   }/>
+
+                              <Route path="/remove-user" element={
+                                      <ProtectedRouteAdmin>
+                                          <RemoveUsers/>
+                                       </ProtectedRouteAdmin>
+                                       }/>
                             <Route path="/details/:imdbID" element={<OmdbDetails/>}/>
                             <Route path="/profile/:uid" element={<PublicProfile/>}/>
+
                         </Routes>
                     </CurrentUser>
                 </BrowserRouter>

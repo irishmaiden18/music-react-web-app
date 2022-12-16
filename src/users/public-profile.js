@@ -34,6 +34,10 @@ const PublicProfile = () => {
                 Follow
             </button>
             <h1>{publicProfile && publicProfile.username}</h1>
+            <h5>{publicProfile &&  publicProfile.bio}</h5>
+            <h6>{publicProfile && publicProfile.location}</h6>
+
+
             <ul>
                 {
                     reviews && reviews.map((review) =>

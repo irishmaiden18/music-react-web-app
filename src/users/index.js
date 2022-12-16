@@ -11,7 +11,7 @@ const Users = () => {
     }, [])
     return(
         <>
-            <h1>Users {users.length}</h1>
+            <h3>Number of active users: {users.length}</h3>
             <div className="list-group">
                 {
                     users.map((user) =>
