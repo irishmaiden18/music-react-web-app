@@ -15,7 +15,7 @@ const Follows = ({uid}) => {
 
     return(
         <>
-            <h2>Following</h2>
+            <h6>Following:</h6>
             <div className="list-group">
                 {
                     following && following.map((follow) =>
@@ -25,7 +25,7 @@ const Follows = ({uid}) => {
                     )
                 }
             </div>
-            <h2>Followers</h2>
+            <h6>Followers:</h6>
             <div className="list-group">
                 {
                     followers && followers.map((follow) =>

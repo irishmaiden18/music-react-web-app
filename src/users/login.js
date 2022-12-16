@@ -13,7 +13,7 @@ const Login = () => {
     const handleLoginBtn = () => {
         try {
             dispatch(loginThunk({username, password}))
-            // navigate('/profile')
+//             navigate('/profile')
         } catch (e) {
 
         }

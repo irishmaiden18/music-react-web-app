@@ -31,7 +31,7 @@ const Profile = () => {
                                      <img className="rounded-circle avatarIcon border border-3"
                                           src="profilepic.jpeg"
                                           alt=''/>
-                                     <button className="border rounded-pill fw-bold float-end profileButton" onClick={() => navigate("/tuiter/edit-profile")}>Edit Profile</button>
+                                     <button className="border rounded-pill fw-bold float-end profileButton" onClick={() => navigate("/edit-profile")}>Edit Profile</button>
 
                </div>
                <div>

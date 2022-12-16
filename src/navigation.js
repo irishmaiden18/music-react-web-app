@@ -21,12 +21,7 @@ const Navigation = () => {
                     Search
                 </Link>
             </li>
-            <li className={`nav-item ${!currentUser ? 'd-none':''}`}>
-                <Link to="/users"
-                      className={`nav-link ${parts[1] === 'users'?'active': ''}`}>
-                    Users
-                </Link>
-            </li>
+
             <li className={`nav-item ${currentUser ? 'd-none':''}`}>
                 <Link to="/login"
                       className={`nav-link ${parts[1] === 'login'?'active': ''}`}>
@@ -45,6 +40,26 @@ const Navigation = () => {
                     Profile
                 </Link>
             </li>
+            <li className={`nav-item ${!currentUser ? 'd-none':''}`}>
+                            <Link to="/users"
+                                  className={`nav-link ${parts[1] === 'users'?'active': ''}`}>
+                                View Users
+                            </Link>
+                        </li>
+
+
+            <li className={`nav-item ${!currentUser ? 'd-none':''}`}>
+                                        <Link to="/remove-user"
+                                              className={`nav-link ${parts[1] === 'remove-user'?'active': ''}`}>
+                                            Remove User
+                                        </Link>
+                        </li>
+                        <li className={`nav-item ${!currentUser ? 'd-none':''}`}>
+                                                    <Link to="/newsongs"
+                                                          className={`nav-link ${parts[1] === 'newsongs'?'active': ''}`}>
+                                                        Add Songs
+                                                    </Link>
+                                    </li>
         </ul>
     )
 }
