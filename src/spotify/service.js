@@ -3,8 +3,8 @@ import {Buffer} from "buffer";
 
 const api = axios.create({withCredentials: true})
 
-const client_id = '46273ede126540ecb96db32d50d5f08c';
-const client_secret = '6cf520362bff407ebab1afd5c0e11b94';
+const client_id = '';
+const client_secret = '';
 
 
 

@@ -45,6 +45,7 @@ function App() {
             <Provider store={store}>
                 <BrowserRouter>
                     <CurrentUser>
+                        <h1>NEW</h1>
                         <Navigation/>
                         <Routes>
                             <Route path="/spotify" element={<Spotify/>}/>
