@@ -56,9 +56,18 @@ const OmdbDetails = () => {
                             {/*    Spotify! {details.external_urls.spotify}</li>*/}
                             {/*spotify link*/}
                             <li className="ps-5 pe-5 float-end text-white"><a href={details.external_urls.spotify}><button className="btn btn-success float-end text-white">Go to Spotify</button></a></li>
+<br/>
                         </ul>
 
+
                     </div>
+                    <br/>
+                    <br/>
+
+
+                                             <input type = "textarea" placeholder="Write your review..." rows="5" cols="40"/>
+                                              <br/>
+                                               <button className="btn btn-success float-end text-white">Post Review</button>
                 </div>
                 {
                     // currentUser &&
